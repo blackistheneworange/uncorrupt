@@ -1,0 +1,54 @@
+# Compiled binaries and test executables
+*.exe
+*.exe~
+*.dll
+*.so
+*.dylib
+*.test
+*.out
+
+# Plain text files
+*.txt
+
+# Compiled object files
+*.o
+*.a
+
+# Go build cache & intermediate directories
+/build/
+bin/
+dist/
+out/
+
+# Dependency & module files (auto-generated)
+pkg/
+vendor/
+
+# ---------------------------------------------------------------------
+# IDE / Editor / Tooling
+# ---------------------------------------------------------------------
+# VSCode
+.vscode/
+# JetBrains / GoLand
+.idea/
+# Sublime / Others
+*.sublime-project
+*.sublime-workspace
+
+# ---------------------------------------------------------------------
+# OS & Miscellaneous
+# ---------------------------------------------------------------------
+# macOS
+.DS_Store
+# Windows
+Thumbs.db
+# Linux
+*~
+
+# ---------------------------------------------------------------------
+# Logs & temporary files
+# ---------------------------------------------------------------------
+*.log
+*.tmp
+*.swp
+*.bak
