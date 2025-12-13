@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Uncorrupt</title>
+    <link rel="stylesheet" href="static/style.css" />
+</head>
+<body>
+    <h1 class="page-title"><span>UN</span><span>CORRUPT</span></h1>
+
+    <main>
+        <section class="tabs">
+            <button class="tab-button active" data-target="corrupt">CORRUPT</button>
+            <button class="tab-button" data-target="uncorrupt">UNCORRUPT</button>
+        </section>
+        <form id="form" data-target="corrupt">
+            <div class="form-header">
+                <input class="input-key" type="text" name="key" placeholder="key..." required />
+                <div class="form-header--actions">
+                    <div class="button-container form-submit-container">
+                        <button class="form-submit" type="submit">Submit</button>
+                    </div>
+                    <div class="input-type-selector">
+                        <label for="fileInputType">File Upload</label>
+                        <input id="fileInputType" type="checkbox"/>
+                    </div>
+                </div>
+            </div>
+            <div class="input-area">
+                <div class="input-type input-text active">
+                    <textarea name="inputText" placeholder="Input text..."></textarea>
+                    <textarea name="outputText" placeholder="Output appears here..." disabled></textarea>
+                </div>
+                <div class="input-type input-file">
+                    <input name="inputFile" type="file" />
+                </div>
+            </div>
+        </form>
+    </main>
+    <script src="static/script.js"></script>
+</body>
+</html>
