@@ -1,6 +1,7 @@
 package main
 
 import (
+	"flag"
 	"io"
 	"log"
 	"net/http"
@@ -12,6 +13,7 @@ import (
 )
 
 var pageHtml []byte
+var sslEnabled = flag.Bool("ssl", true, "")
 
 func handleRender(w http.ResponseWriter, r *http.Request) {
 	w.Header().Set("Content-Type", "text/html")
@@ -99,7 +101,9 @@ func handleUncorrupt(w http.ResponseWriter, r *http.Request) {
 }
 
 func main() {
-	port := "8080"
+	flag.Parse()
+
+	port := os.Getenv("PORT")
 	router := gohttprouter.NewRouter()
 
 	fs := http.FileServer(http.Dir("./page/static"))
@@ -111,7 +115,11 @@ func main() {
 
 	log.Println("Server started in port", port)
 
-	log.Fatal(http.ListenAndServeTLS(":8080", "certs/certificate.crt", "certs/private.key", router))
+	if *sslEnabled {
+		log.Fatal(http.ListenAndServeTLS(":"+port, "certs/certificate.crt", "certs/private.key", router))
+	} else {
+		log.Fatal(http.ListenAndServe(":"+port, router))
+	}
 }
 
 func init() {
